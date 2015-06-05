@@ -1,0 +1,31 @@
+1) 
+As an owner, I can login with a username and password
+I can enter/save/update/delete my details
+Name
+Postal Address
+Email
+
+2) 
+I can enter/update/save/delete my dogs details;
+Name
+Breed
+Date of Birth
+
+3) 
+I can klick on a button to register my dog ownership.
+I can choose to register for 3, 6 12 months in the future (radio button).
+3 months cost $25
+6 months $65
+12 months $85
+
+4) 
+When I click the button, the owner will receive an email confirmation that my Dog is now registered for the next (3, 6 or 12) months. And that I need to pay the associated amount into bank account 
+12-1234-1234-01.
+
+(Tip, its quick and easy to set-up mandril for email sending.)
+
+Also, there will be a confirming page/message showing that the dog is now registered for 3, 6 or 12 months. And that I am required to pay the associated amount into bank account 12-1234-1234-01.
+
+5)
+As an Admin I can login to the system with an Admin password
+I can then get a report page (just basic list) showing the owners details and their registered Dogs, and how many months they have registered for.
