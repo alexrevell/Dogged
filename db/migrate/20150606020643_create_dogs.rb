@@ -4,7 +4,7 @@ class CreateDogs < ActiveRecord::Migration
       t.string :name
       t.string :breed
       t.date :date_of_birth
-      t.belongs_to :owner, index: true
+      t.belongs_to :user
 
       t.timestamps null: false
     end

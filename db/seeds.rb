@@ -8,3 +8,11 @@
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 # Environment variables (ENV['...']) can be set in the file .env file.
+
+@user = FactoryGirl.create(:user)
+# User.create(name: Faker::Name.name, email: Faker::Internet.email, address: "Wooftown, Wisconsin", password: "password")
+
+ # description: Faker::Hacker.say_something_smart, price: rand(1..100)) }
+
+3.times {@user.dogs << FactoryGirl.create(:dog)}
+ # Dog.create(name: Faker::Name.name, breed: "Wolf", date_of_birth: Date.new)

@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :dog do
-    name "MyString"
-breed "MyString"
-date_of_birth "2015-06-06"
+    name {Faker::Name.name}
+    breed {Faker::Hacker.adjective}
+    date_of_birth {"2015-01-01"}
   end
 
 end
