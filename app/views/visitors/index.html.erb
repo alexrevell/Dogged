@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if current_user.role === 'user' %>
   <h3>Welcome To Dogged</h3>
   <h4>The site for registering your doggly friends</h4>
   <ul>
@@ -7,9 +7,28 @@
     <li><h3>Address</h3><%= current_user.address %></li>
     <li><h3>Email</h3><%= current_user.email %></li>
   </ul>
-  <h1>My Dogs</h1>
-  <h1>View My Dogs</h1>
-  <h1>Register New Dog</h1>
-  <h1></h1>
-
+  <ul>
+  <% current_user.dogs.each do |dog| %>
+    <h1>My Dogs</h1>
+    <li><%= dog.name %></li>
+    <h1>View My Dogs</h1>
+    <h1>Register New Dog</h1>
+    <h1></h1>
+  </ul>
+  <% end %>
+<% elsif current_user.role === 'admin'%>
+  <ul>
+  <% User.all.each do |user| %>
+    <li>
+      <ul>
+      <%= user.name %>
+      <%= user.dogs.each do |dog| %>
+        <li><%= dog.name %></li>
+        <li><%= dog.breed %></li>
+        <li><%= dog.date_of_birth %></li>
+      </ul>
+      <% end %>
+    </li>
+  </ul>
+  <% end %>
 <% end %>
