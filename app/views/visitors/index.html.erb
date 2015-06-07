@@ -1,32 +1,35 @@
 <% if current_user.role === 'user' %>
-  <h3>Welcome To Dogged</h3>
-  <h4>The site for registering your doggly friends</h4>
-  <ul>
+  <h1><%=current_user.name %>, Welcome To Dogged</h1>
+  <h2>The site for registering your doggly friends</h2>
+  <div>
     <h1>My Details</h1>
-    <li><h3>Name</h3> <%= current_user.name %></li>
-    <li><h3>Address</h3><%= current_user.address %></li>
-    <li><h3>Email</h3><%= current_user.email %></li>
-  </ul>
-  <ul>
-  <% current_user.dogs.each do |dog| %>
+    <h3>Name</h3><p><%= current_user.name %></p>
+    <h3>Address</h3><p><%= current_user.address %></p>
+    <h3>Email</h3><p><%= current_user.email %></p>
+  </div>
+
+  <div>
     <h1>My Dogs</h1>
-    <li><%= dog.name %></li>
-    <h1>View My Dogs</h1>
-    <h1>Register New Dog</h1>
-    <h1></h1>
-  </ul>
+    <% current_user.dogs.each do |dog| %>
+    <div>
+      <p><%= dog.name %></p>
+      <p><%= dog.breed %></p>
+      <p><%= dog.date_of_birth %></p>
+      <p><%= link_to 'Update Dog Details', edit_dogs_path %></p>
+    </div>
+  </div>
+  <h1><%= link_to 'Register New Dog', new_dogs_path %></h1>
   <% end %>
+  <!-- separate partial? -->
 <% elsif current_user.role === 'admin'%>
   <ul>
   <% User.all.each do |user| %>
     <li>
-      <ul>
       <%= user.name %>
       <%= user.dogs.each do |dog| %>
-        <li><%= dog.name %></li>
-        <li><%= dog.breed %></li>
-        <li><%= dog.date_of_birth %></li>
-      </ul>
+        <p><%= dog.name %></p>
+        <p><%= dog.breed %></p>
+        <p><%= dog.date_of_birth %></p>
       <% end %>
     </li>
   </ul>
