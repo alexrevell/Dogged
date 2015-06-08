@@ -3,7 +3,7 @@ class DogsController < ApplicationController
   def update
     @dog = Dog.find(params[:id])
 
-    if @dog.update!(dog_params)
+    if @dog.update(dog_params)
       flash[:notice] = "Dog details successfully updated"
     else
       flash[:warning] = "Dog details unable to be updated"
@@ -20,7 +20,7 @@ class DogsController < ApplicationController
   end
 
   def show
-    render :index
+    @dog = current_user.dogs.find(params[:id])
   end
 
   def create
@@ -32,14 +32,16 @@ class DogsController < ApplicationController
       flash[:warning] = "Dog couldn't be added"
     end
     redirect_to user_dogs_path
-    # render plain: params[:dog].inspect
-    # @new_dog = Dog.new(dog_params)
-    # if @new_dog.save
-      # flash[:notice] = "New dog succesfully added"
-    # else
-      # flash[:warning] = "Dog couldn't be saved"
-    # end
-    # redirect_to user_dogs_path(current_user)
+  end
+
+  def destroy
+    @dog = Dog.find(params[:id])
+    if @dog.destroy
+      flash[:notice] = "Dog successfully removed"
+    else
+      flash[:warning] = "Dog could not be removed"
+    end
+    redirect_to user_dogs_path
   end
 
   private

@@ -1,0 +1,30 @@
+  <h1>Dogged</h1>
+
+  <h2><%= @user.name %></h2>
+
+  <div>
+    <h2>My Details</h2>
+    <h3>Name</h3><p><%= @user.name %></p>
+    <h3>Address</h3><p><%= @user.address %></p>
+    <h3>Email</h3><p><%= @user.email %></p>
+    <p><%= link_to 'Update Details', edit_user_registration_path %></p>
+  </div>
+
+  <div>
+    <h1>My Dogs</h1>
+    <% @user.dogs.each do |dog| %>
+
+    <div>
+      <p><%= dog.name %></p>
+      <p><%= dog.breed %></p>
+      <p><%= dog.date_of_birth %></p>
+      <p><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: @user.id, id: dog.id) %></p>
+    </div>
+    <% end %>
+
+    <p><%= link_to 'Register New Dog', new_user_dog_path(@user) %></p>
+  </div>
+  <!-- separate partial? -->
+ <% if current_user.admin? %>
+  <%= render 'layouts/admin_index' %>
+<% end %>
