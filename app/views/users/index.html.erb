@@ -15,9 +15,11 @@
     <% current_user.dogs.each do |dog| %>
 
     <div>
-      <p><%= dog.name %></p>
-      <p><%= dog.breed %></p>
-      <p><%= dog.date_of_birth %></p>
+      <p>Name: <%= dog.name %></p>
+      <p>Breed: <%= dog.breed %></p>
+      <p>DOB: <%= dog.date_of_birth %></p>
+      <p>Registered: <%= dog.registered %></p>
+      <p>Registered Until: <%= dog.registered_until %></p>
       <p><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: current_user.id, id: dog.id) %></p>
     </div>
     <% end %>
