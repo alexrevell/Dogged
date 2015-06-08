@@ -1,22 +1,11 @@
 class DogsController < ApplicationController
 
-  def update
-    @dog = Dog.find(params[:id])
-
-    if @dog.update(dog_params)
-      flash[:notice] = "Dog details successfully updated"
-    else
-      flash[:warning] = "Dog details unable to be updated"
-    end
-    redirect_to user_dogs_path
+  def new
+    @dog = Dog.new
   end
 
   def edit
     @dog = Dog.find(params[:id])
-  end
-
-  def new
-    @dog = Dog.new
   end
 
   def show
@@ -30,6 +19,17 @@ class DogsController < ApplicationController
       flash[:notice] = "New dog succesfully added"
     else
       flash[:warning] = "Dog couldn't be added"
+    end
+    redirect_to user_dogs_path
+  end
+
+  def update
+    @dog = Dog.find(params[:id])
+
+    if @dog.update(dog_params)
+      flash[:notice] = "Dog details successfully updated"
+    else
+      flash[:warning] = "Dog details unable to be updated"
     end
     redirect_to user_dogs_path
   end
