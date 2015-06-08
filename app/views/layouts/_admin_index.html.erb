@@ -1,0 +1,17 @@
+<!-- Admin view -->
+<h2>All Dog Owners</h2>
+<ul>
+<% User.all.each do |user| %>
+
+  <div>
+    <h3><%= user.name %></h3>
+    <h4>Dogs:</h4>
+    <% user.dogs.each do |dog| %>
+      <p>Name: <%= dog.name %></p>
+      <p>Breed: <%= dog.breed %></p>
+      <p>DOB: <%= dog.date_of_birth %></p>
+    <% end %>
+  </div>>
+
+<% end %>
+</ul>

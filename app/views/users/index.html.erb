@@ -18,13 +18,13 @@
       <p><%= dog.name %></p>
       <p><%= dog.breed %></p>
       <p><%= dog.date_of_birth %></p>
-      <p><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: current_user.id, id: dog.id) %></p>
+      <p><%= link_to 'Update Dog Details', edit_user_dog_path %></p>
     </div>
     <% end %>
 
-    <p><%= link_to 'Register New Dog', new_user_dog_path(user_id: current_user.id) %></p>
+    <p><%= link_to 'Register New Dog', new_user_dog_path(current_user) %></p>
   </div>
   <!-- separate partial? -->
-<% if current_user.admin? %>
+ <% if current_user.admin? %>
   <%= render 'layouts/admin_index' %>
 <% end %>
