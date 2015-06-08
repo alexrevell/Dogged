@@ -13,14 +13,32 @@
   <div>
     <h1>My Dogs</h1>
     <% @user.dogs.each do |dog| %>
-
-    <div>
-      <p>Name: <%= dog.name %></p>
-      <p>Breed: <%= dog.breed %></p>
-      <p>DOB: <%= dog.date_of_birth %></p>
-      <p>Registered: <%= dog.registered %></p>
-      <p>Registered Until: <%= dog.registered_until %></p>
-      <p><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: @user.id, id: dog.id) %></p>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Breed</th>
+              <th>DOB</th>
+              <th>Registered</th>
+              <th>Registered Until</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= dog.id %></td>
+              <td><%= dog.name %></td>
+              <td><%= dog.breed %></td>
+              <td>DOB: <%= dog.date_of_birth %></td>
+              <td>Registered: <%= dog.registered %></td>
+              <td>Registered Until: <%= dog.registered_until %></td>
+              <td><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: @user.id, id: dog.id) %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <% end %>
 
