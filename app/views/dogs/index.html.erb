@@ -3,17 +3,28 @@
   <div>
     <h1>My Dogs</h1>
     <% current_user.dogs.each do |dog| %>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-striped">
 
-    <div>
-      <p>Name: <%= dog.name %></p>
-      <p>Breed: <%= dog.breed %></p>
-      <p>DOB: <%= dog.date_of_birth %></p>
-      <p>Registered: <%= dog.registered %></p>
-      <p>Registered Until: <%= dog.registered_until %></p>
-      <p><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: current_user.id, id: dog.id) %></p>
+          <tbody>
+            <tr><td>Name</td><td><%= dog.name %></td></tr>
+            <tr><td>Breed</td><td><%= dog.breed %></td></tr>
+            <tr><td>DOB</td><td><%= dog.date_of_birth %></td></tr>
+            <tr><td>ID</td><td><%= dog.id %></td></tr>
+            <tr><td>Currently Registered</td><td><%= dog.registered %></td></tr>
+            <tr><td>Registered Until</td><td><%= dog.registered_until %></td></tr>
+          </tbody>
+
+          <tfoot>
+            <tr><td><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: current_user.id, id: dog.id) %></td></tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
     <% end %>
 
-    <p><%= link_to 'Register New Dog', new_user_dog_path(user_id: current_user.id) %></p>
+    <p><%= link_to 'Register New Dog', new_user_dog_path(current_user) %></p>
   </div>
+
 
