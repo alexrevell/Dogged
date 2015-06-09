@@ -1,14 +1,25 @@
- <h1>Dogged</h1>
+<h1>Dogged</h1>
 
-  <div>
-    <h2><%= @dog.name %></h2>
-    <div>
-      <p>Breeed: <%= @dog.breed %></p>
-      <p>DOB: <%= @dog.date_of_birth %></p>
-      <p>Registered: <%= @dog.registered %></p>
-      <p>Registered Until: <%= @dog.registered_until %></p>
-      <p><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: current_user.id, id: @dog.id) %></p>
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-striped">
+    <thead>
+      <tr><td><h3><%= @dog.name %></h3></td></tr>
+    </thead>
+      <tbody>
+        <tr><td>Name</td><td><%= @dog.name %></td></tr>
+        <tr><td>Breed</td><td><%= @dog.breed %></td></tr>
+        <tr><td>DOB</td><td><%= @dog.date_of_birth %></td></tr>
+        <tr><td>ID</td><td><%= @dog.id %></td></tr>
+        <tr><td>Registered Until</td><td><%= @dog.registered_until %></td></tr>
+      </tbody>
 
-    <p><%= link_to 'Register New Dog', new_user_dog_path(user_id: current_user.id) %></p>
+      <tfoot>
+        <tr><td><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: current_user.id, id: @dog.id) %></td></tr>
+      </tfoot>
+    </table>
   </div>
+</div>
+<div>
+  <p><%= link_to 'Register New Dog', new_user_dog_path(user_id: current_user.id) %></p>
+</div>

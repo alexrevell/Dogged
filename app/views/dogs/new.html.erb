@@ -19,15 +19,11 @@
     </div>
 
     <div class="form-group">
-    <%= f.label :register_for %>
-    <% f.select :registered_until , class:'form-control'%>
-      <!-- <form action="register" accept-charset="utf-8"> -->
-      <!--   <input class="form-control" type="radio" name="dog[registered_until]" option value="6 months">6 months</input>
-        <input class="form-control" type="radio" name="dog[registered_until]" option value="9 months">9 months</input>
-        <input class="form-control" type="radio" name="dog[registered_until]" option value="12 months">12 months</input> -->
-      <!-- </form> -->
+      <%= f.label "register for three months $25" %>
       <%= f.radio_button :registered_until, (Date.today + 3.months), class: 'form-control' %>
+      <%= f.label "register for six months $65" %>
       <%= f.radio_button :registered_until, (Date.today + 6.months), class: 'form-control' %>
+      <%= f.label "register for twelve months $85" %>
       <%= f.radio_button :registered_until, (Date.today + 12.months), class: 'form-control' %>
     </div>
 

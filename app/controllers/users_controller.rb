@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def _admin_index
-    @users - User.all
+    @users = User.all
   end
 
   def show

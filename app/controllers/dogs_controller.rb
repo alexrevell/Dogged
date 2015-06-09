@@ -9,16 +9,16 @@ class DogsController < ApplicationController
   end
 
   def show
-    @dog = current_user.dogs.find(params[:id])
+    @dog = Dog.find(params[:id])
+    # @dog = current_user.dogs.find(params[:id])
   end
 
   def create
-    @user = current_user
-    @user.dogs << Dog.create(dog_params)
-    if @user.save
-      flash[:notice] = "New dog succesfully added"
+    @dog = current_user.dogs.new(dog_params)
+    if @dog.save
+      flash[:notice] = "New dog succesfully registered"
     else
-      flash[:warning] = "Dog couldn't be added"
+      flash[:warning] = "Dog couldn't be registered"
     end
     redirect_to user_dogs_path
   end
@@ -47,7 +47,7 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :date_of_birth, :registered, :registered_until, :owner_id)
+    params.require(:dog).permit(:name, :breed, :date_of_birth, :registered_until, :owner_id)
   end
 
 end
