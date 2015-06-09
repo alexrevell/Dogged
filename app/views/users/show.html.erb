@@ -3,11 +3,28 @@
   <h2><%= @user.name %></h2>
 
   <div>
-    <h2>My Details</h2>
-    <h3>Name</h3><p><%= @user.name %></p>
-    <h3>Address</h3><p><%= @user.address %></p>
-    <h3>Email</h3><p><%= @user.email %></p>
-    <p><%= link_to 'Update Details', edit_user_registration_path %></p>
+    <h1>My Details</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td><%= @user.name %></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Name</td><td><%= @user.name %></td></tr>
+            <tr><td>Address</td><td><%= @user.address %></td></tr>
+            <tr><td>Email</td><td><%= @user.email %></td></tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td><%= link_to 'Update Details', edit_user_registration_path %></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
   </div>
 
   <div>
@@ -16,27 +33,18 @@
     <div class="row">
       <div class="col-md-6">
         <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Breed</th>
-              <th>DOB</th>
-              <th>Registered</th>
-              <th>Registered Until</th>
-            </tr>
-          </thead>
           <tbody>
-            <tr>
-              <td><%= dog.id %></td>
-              <td><%= dog.name %></td>
-              <td><%= dog.breed %></td>
-              <td>DOB: <%= dog.date_of_birth %></td>
-              <td>Registered: <%= dog.registered %></td>
-              <td>Registered Until: <%= dog.registered_until %></td>
-              <td><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: @user.id, id: dog.id) %></td>
-            </tr>
+            <tr><td>Name</td><td><%= dog.name %></td></tr>
+            <tr><td>Breed</td><td><%= dog.breed %></td></tr>
+            <tr><td>DOB</td><td><%= dog.date_of_birth %></td></tr>
+            <tr><td>ID</td><td><%= dog.id %></td></tr>
+            <tr><td>Currently Registered</td><td><%= dog.registered %></td></tr>
+            <tr><td>Registered Until</td><td><%= dog.registered_until %></td></tr>
+
           </tbody>
+          <tfoot>
+            <tr><td><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: @user.id, id: dog.id) %></td></tr>
+          </tfoot>
         </table>
       </div>
     </div>

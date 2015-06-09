@@ -18,6 +18,19 @@
       <%= f.date_field :date_of_birth, class: 'form-control' %>
     </div>
 
+    <div class="form-group">
+    <%= f.label :register_for %>
+    <% f.select :registered_until , class:'form-control'%>
+      <!-- <form action="register" accept-charset="utf-8"> -->
+      <!--   <input class="form-control" type="radio" name="dog[registered_until]" option value="6 months">6 months</input>
+        <input class="form-control" type="radio" name="dog[registered_until]" option value="9 months">9 months</input>
+        <input class="form-control" type="radio" name="dog[registered_until]" option value="12 months">12 months</input> -->
+      <!-- </form> -->
+      <%= f.radio_button :registered_until, (Date.today + 3.months), class: 'form-control' %>
+      <%= f.radio_button :registered_until, (Date.today + 6.months), class: 'form-control' %>
+      <%= f.radio_button :registered_until, (Date.today + 12.months), class: 'form-control' %>
+    </div>
+
      <%= f.submit 'Register dog', :method => :post, :class => 'button right' %>
 
   <% end %>

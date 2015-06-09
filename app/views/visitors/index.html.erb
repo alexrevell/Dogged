@@ -11,20 +11,8 @@
   </div>
 
   <div>
-    <h1>My Dogs</h1>
-    <% current_user.dogs.each do |dog| %>
-
-    <div>
-      <p>Name: <%= dog.name %></p>
-      <p>Breed: <%= dog.breed %></p>
-      <p>DOB: <%= dog.date_of_birth %></p>
-      <p>Registered: <%= dog.registered %></p>
-      <p>Registered Until: <%= dog.registered_until %></p>
-      <p><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: current_user.id, id: dog.id) %></p>
-    </div>
-    <% end %>
-
-    <p><%= link_to 'Register New Dog', new_user_dog_path(user_id: current_user.id) %></p>
+    <h1><%= link_to 'View My Dogs', user_dogs_path(user_id: current_user.id) %></h1>
+    <h1><%= link_to 'Register New Dog', new_user_dog_path(user_id: current_user.id) %></h1>
   </div>
   <!-- separate partial? -->
 <% if current_user.admin? %>
