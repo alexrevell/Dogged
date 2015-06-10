@@ -1,0 +1,7 @@
+<h1><%= current_user.name %></h1>
+
+<% if current_user.admin? %>
+  <%= render 'layouts/admin_index' %>
+<% else %>
+  <%= render 'layouts/user_index' %>
+<% end %>

@@ -1,13 +1,8 @@
-  <h1>Welcome To Dogged <%= current_user.name %> </h1>
-
-  <h3>The site for registering your doggly friends</h3>
-
+<h1><%= current_user.name %></h1>
 
   <!-- separate partial? -->
 <% if current_user.admin? %>
   <%= render 'layouts/admin_index' %>
-
 <% else %>
-
   <%= render 'layouts/user_index' %>
 <% end %>

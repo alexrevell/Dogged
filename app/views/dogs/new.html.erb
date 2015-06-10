@@ -1,0 +1,33 @@
+<div class="authform">
+  <%= form_for [:user, @dog], :url => user_dogs_path do |f| %>
+
+    <h3>New Dog</h3>
+
+    <div class="form-group">
+      <%= f.label :dog_name %>
+      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :breed %>
+      <%= f.text_field :breed, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :date_of_birth %>
+      <%= f.date_field :date_of_birth, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "register for three months $25" %>
+      <%= f.radio_button :registered_until, (Date.today + 3.months), class: 'form-control' %>
+      <%= f.label "register for six months $65" %>
+      <%= f.radio_button :registered_until, (Date.today + 6.months), class: 'form-control' %>
+      <%= f.label "register for twelve months $85" %>
+      <%= f.radio_button :registered_until, (Date.today + 12.months), class: 'form-control' %>
+    </div>
+
+     <%= f.submit 'Register dog', :method => :post, :class => 'button right' %>
+
+  <% end %>
+</div>

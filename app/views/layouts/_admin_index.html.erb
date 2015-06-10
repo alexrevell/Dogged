@@ -1,0 +1,31 @@
+<!-- Admin view -->
+<h2>Dogged Administration</h2>
+<h3>All Dog Owners</h3>
+
+<div>
+<% @users.each do |user| %>
+
+  <h4><%= user.name %></h4>
+  <% user.dogs.each do |dog| %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-striped">
+        <tbody>
+          <tr><td>Name</td><td><%= dog.name %></td></tr>
+          <tr><td>Breed</td><td><%= dog.breed %></td></tr>
+          <tr><td>DOB</td><td><%= dog.date_of_birth %></td></tr>
+          <tr><td>ID</td><td><%= dog.id %></td></tr>
+          <tr><td>Registered Until</td><td><%= dog.registered_until %></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td><%= link_to 'Update Dog Details', edit_user_dog_path(user_id: @user.id, id: dog.id) %></td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<% end %>
+
