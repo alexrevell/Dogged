@@ -1,20 +1,10 @@
-  <h1><%= current_user.name %>Welcome To Dogged</h1>
+<h1><%= current_user.name %>Welcome To Dogged</h1>
 
-  <h2>The site for registering your doggly friends</h2>
+<h2>The site for registering your doggly friends</h2>
 
-  <div>
-    <h2>My Details</h2>
-    <h3>Name</h3><p><%= current_user.name %></p>
-    <h3>Address</h3><p><%= current_user.address %></p>
-    <h3>Email</h3><p><%= current_user.email %></p>
-    <p><%= link_to 'Update Details', edit_user_registration_path %></p>
-  </div>
-
-  <div>
-    <h1><%= link_to 'View My Dogs', user_dogs_path(user_id: current_user.id) %></h1>
-    <h1><%= link_to 'Register New Dog', new_user_dog_path(user_id: current_user.id) %></h1>
-  </div>
   <!-- separate partial? -->
- <% if current_user.admin? %>
+<% if current_user.admin? %>
   <%= render 'layouts/admin_index' %>
+<% else %>
+  <%= render 'layouts/user_index' %>
 <% end %>

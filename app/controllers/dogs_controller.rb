@@ -10,17 +10,17 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
-    # @dog = current_user.dogs.find(params[:id])
   end
 
   def create
     @dog = current_user.dogs.new(dog_params)
     if @dog.save
-      flash[:notice] = "New dog succesfully registered"
+      flash[:notice] = "Your dog #{@dog.name} was succesfully registered until #{@dog.registered_until}. Please pay #{@dog.registration_cost} into bank account 12-1234-1234-01"
+      redirect_to user_dogs_path
     else
-      flash[:warning] = "Dog couldn't be registered"
+      flash[:warning] = "Your dog couldn't be registered, please try again"
+      redirect_to new_user_dog_path(current_user)
     end
-    redirect_to user_dogs_path
   end
 
   def update
