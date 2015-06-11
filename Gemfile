@@ -26,6 +26,8 @@ group :development do
   gem 'spring-commands-rspec'
 end
 group :development, :test do
+  gem 'mandrill-api'
+  gem 'mandrill_mailer'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'

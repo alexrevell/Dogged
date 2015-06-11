@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Registration with Dogged</h1>
+
+    <h3>Hello, <%= @user.name %></h3>
+
+    <p>Thank you for registering your dog <%= @dog.name %> at Dogged</p>
+
+    <h3>Registration Info:</h3>
+    <p>Dog name: <%= @dog.name %></p>
+    <p>Dog breed: <%= @dog.breed %></p>
+    <p>Dog DOB: <%= @dog.date_of_birth %></p>
+    <p>Dog registered for: <%= @dog.remaining_time_registered %></p>
+    <p>Dog registration fee: <%= @dog.registration_cost %></p>
+
+    <h3>Payment Info:</h3>
+    <p>Please make payment of <%= @dog.registration_cost %> into bank account 12-1234-1234-01</p>
+
+    <p>Many thanks,</p>
+    <p><strong>Dogged Team</strong></p>
+  </body>
+</html>
