@@ -15,7 +15,8 @@ class DogsController < ApplicationController
   def create
     @dog = current_user.dogs.new(dog_params)
     if @dog.save
-      flash[:notice] = "Your dog #{@dog.name} was succesfully registered until #{@dog.registered_until}. Please pay #{@dog.registration_cost} into bank account 12-1234-1234-01"
+      RegistrationMailer.dogged_registration(current_user, @dog).deliver
+      flash[:notice] = "Your dog #{@dog.name} was succesfully registered until #{@dog.registered_until}. Please pay #{@dog.registration_cost} into bank account 12-1234-1234-01. An email has been send to #{current_user.email} with instructions."
       redirect_to user_dogs_path
     else
       flash[:warning] = "Your dog couldn't be registered, please try again"
