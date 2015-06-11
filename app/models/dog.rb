@@ -23,8 +23,4 @@ class Dog < ActiveRecord::Base
     distance_of_time_in_words(self.registered_until, Date.today)
   end
 
-  def registration_fee
-    @registration_fee
-  end
-
 end
