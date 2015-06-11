@@ -24,4 +24,17 @@ RSpec.describe Dog, type: :model do
     expect(@dog.registered_until).to eq(Date.today + 6.months)
   end
 
+  describe "#registration_cost" do
+    it "returns the cost of dog's registration time period in dollars" do
+      expect(@dog.registration_cost).to eq("$65")
+
+    end
+  end
+
+  describe "#remaining_time_registered" do
+    it "returns a string of the time remaining of dog's registration period" do
+      expect(@dog.remaining_time_registered).to eq("6 months")
+    end
+  end
+
 end
